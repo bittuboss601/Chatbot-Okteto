@@ -19,7 +19,7 @@ RUN pip install rasa==1.9.7
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt && pip3 install httplib2>=0.20.2
 
-ADD config.yml config.yml
-ADD domain.yml domain.yml
 ADD credentials.yml credentials.yml
 ADD endpoints.yml endpoints.yml
+ADD config.yml config.yml
+ADD domain.yml domain.yml

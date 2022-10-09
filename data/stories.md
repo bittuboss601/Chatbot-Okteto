@@ -3,14 +3,10 @@
   - action_hello_world
 * mood_great
   - utter_happy
-  
-## hello world
-* action_hello_world
-  - action_hello_world
 
 ## sad path 1
 * greet
-  - utter_greet
+  - action_hello_world
 * mood_unhappy
   - utter_cheer_up
   - utter_did_that_help
@@ -19,7 +15,7 @@
 
 ## sad path 2
 * greet
-  - utter_greet
+  - action_hello_world
 * mood_unhappy
   - utter_cheer_up
   - utter_did_that_help
