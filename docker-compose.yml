@@ -5,9 +5,9 @@ services:
     build: "./"
     restart: always
     volumes:
-    - ./data: /app/data
-    - ./actions: /app/actions
-    - ./tests: /app/tests
+    - ./data:/app/data
+    - ./actions:/app/actions
+    - ./tests:/app/tests
     command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
     working_dir: /app
     ports:
@@ -19,7 +19,7 @@ services:
     image: rasa-server-okteto:latest
     build: "./"
     volumes:
-    - ./actions: /app/actions
+    - ./actions:/app/actions
     command: bash -c "rasa run actions"
     working_dir: /app
     ports:
