@@ -8,20 +8,21 @@ services:
     - ./data:/app/data
     - ./actions:/app/actions
     - ./tests:/app/tests
-    command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
-    working_dir: /app
+    command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" -p 8080 --debug"
+    working_dir: "/app"
     ports:
-    - '5006:5005'
+    - '5005:8080'
+    public: true
     networks:
     - all
 
-  rasa-actions:
+  rasa-actions-server:
     image: rasa-server-okteto:latest
     build: "./"
     volumes:
     - ./actions:/app/actions
     command: bash -c "rasa run actions"
-    working_dir: /app
+    working_dir: "/app"
     ports:
     - '5055:5055'
     networks:
